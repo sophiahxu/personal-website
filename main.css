@@ -61,3 +61,27 @@
       min-height: 400px;
     }
   }
+
+  .EImage {
+    float : left;
+    width : 80px;
+    height : 80px
+  }
+
+  .EWBImage {
+    float : left;
+    width : 125px;
+    height : 100px;
+  }
+
+  .Etext {
+    float : right;
+    padding-top : "50%";
+  }
+
+  .Ecolumn {
+    display : flex;
+    justify-content : space-between;
+    flex-direction : column;
+    height : 450px;
+  }
