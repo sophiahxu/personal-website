@@ -59,8 +59,9 @@
       Tompkins
       Community Climate fund, coding an app that allows the community to offset their carbon emissions. The app is coded
       in React
-      Native, and I am responsible for delegating tasks to each developer, along with leading team meetings and work
-      sessions.
+      Native, and I am responsible for delegating tasks to each developer and leading team meetings, alongside coding
+      the
+      app.
     </p>
     In my spare time I enjoy cooking, hiking,
     skiing, music, and watching stand-up comedy. Scroll to the bottom for more fun facts about me :P</p>
@@ -74,15 +75,13 @@
       <!-- Hide this text on small devices -->
       <div class="w3-col m6 w3-hide-small w3-padding-large Ecolumn">
         <h3 class="w3-center">MY EXTRACURRICULARS</h3>
-        <div class="w3-row">
-          <img src="images/Cornell-logo.png" class="EImage" alt="Cornell Engineering Photo">
-          <p class="Etext">Undergraduate Peer Advisor, 2021 - Present</p>
+        <div class="w3-col">
+          <img src="images/CornellEngineering.png" class="EImage" alt="Cornell Engineering Photo">
+          <h5 class="Etext">Undergraduate Peer Advisor, 2021 - Present</h5>
         </div>
-        <div class="w3-row"> <img src="images/EWB.jpeg" class="EWBImage" alt="EWB Photo">
-          <p class="Etext">EWB Software Team Lead, 2021 - Present</p>
-        </div>
-        <div class="w3-row"> <img src="images/Cornell-logo.png" class="EImage" alt="SWE Photo">
-          <p class="Etext">Women in Computing at Cornell Mentor, 2022 - Present</p>
+        <div class="w3-col">
+          <img src="images/wicc.png" class="WICCImage" alt="WICC Photo">
+          <h5 class="Etext">Women in Computing at Cornell (WICC) Mentor, 2022 - Present</h5>
         </div>
       </div>
     </div>
@@ -96,30 +95,100 @@
       <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
       <div class="w3-row-padding w3-center">
         <div class="w3-col m3">
-          <img src="images/Path_pic.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="This project utilized MATLAB to simulate the optimal path around any given pictures of obstacles. 
-            I used gradient descent to calculate the ideal route.">
-          <p>Plotting Paths</p>
+          <img src="images/bubblegumBandit.jpeg" style="width:100%"
+            onclick="document.getElementById('id01').style.display='block'" class="w3-hover-opacity">
+          <h5>Bubblegum Bandit</h5>
         </div>
 
         <div class="w3-col m3">
-          <img src="images/Scrabble.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="OCaml served as the backend for this project, and it was displayed using the OCAML Graphics GUI. 
-            It functions as the board game scrabble, with an additional 'Challenge' feature that displays in between turns, 
-            and allows players to challenge the validity of other player's words. Scoring is automatically calculated in the 
-            player boxes.">
-          <p>Online Scrabble</p>
+          <img src="images/plantPalThumb.png" style="width:100%"
+            onclick="document.getElementById('id02').style.display='block'" class="w3-hover-opacity">
+          <h5>Plant Pals</h5>
         </div>
 
         <div class="w3-col m3">
-          <img src="images/Java.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Used a Dijkstra based algorithm to calculate the ideal path out of a sewer system, while collecting as many coins as possible. 
-            Java was used for both front and backend.">
-          <p>Coin Collection</p>
+          <img src="images/react.jpg" style="width:100%" onclick="document.getElementById('id03').style.display='block'"
+            class="w3-hover-opacity">
+          <h5>Climate Fund App</h5>
         </div>
 
         <div class="w3-col m3">
-          <img src="images/react.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Partnered with Ithaca Tompkins Climate Fund, this app allows users to offset their CO2 emissions by 
-            donating a proportional amount to Ithaca's Climate Fund. The project is ongoing and was developed by my 
-            team at Engineers Without Borders. I am responsible for ensuring the app scales across all devices.">
-          <p>Climate Fund App</p>
+          <img src="images/Scrabble.jpg" style="width:100%"
+            onclick="document.getElementById('id04').style.display='block'" class="w3-hover-opacity">
+          <h5>Online Scrabble</h5>
+        </div>
+
+        <!-- The bubblegum bandit Modal -->
+        <div id="id01" class="w3-modal">
+          <div class="w3-modal-content">
+            <div class="w3-container">
+              <span onclick="document.getElementById('id01').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>
+              <h2>Bubblegum Bandit</h2>
+              <img src="images/bubblegumBandit.jpeg">
+              <h4><strong>Tools and Skills:</strong> Java, libgdx, Game Development</h4>
+              <h5 style="margin-top:0.5cm;">Embody a space pirate who wreaks havoc by flipping gravity and sticking
+                enemies with bubblegum!</h5>
+              <h6>Bubblegum Bandit is an action platformer that I created alongside seven other team members over the
+                span of three months. I was
+                responsible for coding much of the physics and player mechanics of the game - most notably,
+                all of the gum mechanics (how it shoots, sticks, and feels) were implemented by me.
+              </h6>
+              <h4>Play it on Steam <a href="https://store.steampowered.com/app/2460680/Bubblegum_Bandit/" title="steam"
+                  target="_blank" class="w3-hover-text-green">here!</a></h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Plant Pals Modal -->
+        <div id="id02" class="w3-modal">
+          <div class="w3-modal-content">
+            <div class="w3-container">
+              <span onclick="document.getElementById('id02').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>
+              <h2>Plant Pals</h2>
+              <img style="width:60%" src="images/plantPalThumb.png">
+              <h4><strong>Tools and Skills:</strong> Python, Javascript, HTML/CSS</h4>
+              <h5 style="margin-top:0.5cm;">Everyone Deserves a Plant</h5>
+              <h6>Plant Pals operates as a search engine that allows users to find their ideal indoor plant depending on
+                the characteristics they search (ie has flowers, little watering, etc.). The backend utilized text
+                querying concepts
+                such as cosine similarity and jaccard to match the user's typed input to a plant's description.
+                Addtionally,
+                Rocchio's algorithm was
+                used so that users could improve their search results depending on whether they liked the ones they were
+                given.
+              </h6>
+              <h4>Github repo <a href="https://github.com/lyradsouza/4300-Plant-Pals" title="repo" target="_blank"
+                  class="w3-hover-text-green">here</a></h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Climate Fund Modal -->
+        <div id="id03" class="w3-modal">
+          <div class="w3-modal-content">
+            <div class="w3-container">
+              <span onclick="document.getElementById('id03').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>
+              <h2>Climate Fund App</h2>
+              <img style="height:60%; width:60%" src="images/react.jpg">
+              <h4><strong>Tools and Skills:</strong> React Native, Team Leadership, Organization</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Online Scrabble Modal -->
+        <div id="id04" class="w3-modal">
+          <div class="w3-modal-content">
+            <div class="w3-container">
+              <span onclick="document.getElementById('id04').style.display='none'"
+                class="w3-button w3-display-topright">&times;</span>
+              <h2>Online Scrabble</h2>
+              <img style="width:60%" src="images/Scrabble.jpg">
+              <h4><strong>Tools and Skills:</strong> OCaml, OCaml graphics</h4>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -63,32 +63,36 @@
   }
 
   .EImage {
-    float : left;
-    width : 80px;
-    height : 80px
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
+    height: 45%
   }
 
-  .EWBImage {
-    float : left;
-    width : 125px;
-    height : 100px;
+  .WICCImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    height: 45%
   }
 
   .Etext {
-    float : right;
-    padding-top : "50%";
+    padding-top: "50%";
+    text-align: center;
   }
 
   .Ecolumn {
-    display : flex;
-    justify-content : space-between;
-    flex-direction : column;
-    height : 450px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 450px;
   }
 
   .nav-top {
-    position:fixed;
-    width:100%;
-    z-index:1;
-    top:0
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0
   }
