@@ -23,8 +23,9 @@
       <a href="#" onclick="return showSection('home')" id="tab-home"><i class="fa fa-home"></i> Home</a>
       <a href="#" onclick="return showSection('about')" id="tab-about"><i class="fa fa-user"></i> About</a>
       <a href="#" onclick="return showSection('portfolio')" id="tab-portfolio"><i class="fa fa-th"></i> Projects</a>
+      <a href="#" onclick="return showSection('resume')" id="tab-resume"><i class="fa fa-file-text"></i> Resume</a>
       <a href="#" onclick="return showSection('contact')" id="tab-contact"><i class="fa fa-envelope"></i> Contact</a>
-      <a href="#" onclick="return showSection('funfacts')" id="tab-funfacts"><i class="fa fa-heart"></i> Fun Facts</a>
+      <a href="#" onclick="return showSection('funfacts')" id="tab-funfacts"><i class="fa fa-heart"></i> Just for Fun</a>
     </nav>
 
     <!-- Main content: one section visible at a time -->
@@ -32,6 +33,7 @@
       <section class="page-section" id="home"></section>
       <section class="page-section" id="about"></section>
       <section class="page-section" id="portfolio"></section>
+      <section class="page-section" id="resume"></section>
       <section class="page-section" id="contact"></section>
       <section class="page-section" id="funfacts"></section>
     </div>
@@ -39,7 +41,7 @@
   </div>
 
   <script>
-    const sections = ['home', 'about', 'portfolio', 'contact', 'funfacts'];
+    const sections = ['home', 'about', 'portfolio', 'resume', 'contact', 'funfacts'];
     const loaded = {};
 
     async function showSection(id) {

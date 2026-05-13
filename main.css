@@ -51,20 +51,20 @@ body, html {
 .tab-sidebar a {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 11px 16px;
-  font-size: 0.85em;
+  gap: 12px;
+  padding: 14px 18px;
+  font-size: 1em;
   color: #444;
   text-decoration: none;
   border-radius: 0 20px 20px 0;
-  margin: 2px 8px 2px 0;
+  margin: 3px 8px 3px 0;
   transition: background 0.15s, color 0.15s;
   white-space: nowrap;
 }
 
 .tab-sidebar a i {
-  font-size: 0.95em;
-  width: 16px;
+  font-size: 1.05em;
+  width: 18px;
   text-align: center;
   color: #666;
   flex-shrink: 0;
@@ -137,6 +137,86 @@ body, html {
 
 .w3-wide { letter-spacing: 10px; }
 .w3-hover-opacity { cursor: pointer; }
+
+/* ── Projects ───────────────────────────────────────────── */
+.projects-category-label {
+  margin: 40px 0 20px;
+  padding-left: 12px;
+  border-left: 4px solid #1a73e8;
+  color: #333;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.project-card {
+  cursor: pointer;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: transform 0.18s, box-shadow 0.18s;
+  background: #fff;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card-body {
+  padding: 16px 20px;
+}
+
+.project-card-body h4 {
+  margin: 0 0 4px;
+  color: #222;
+  font-size: 1.05em;
+}
+
+.project-card-body p {
+  margin: 0;
+  font-size: 0.82em;
+  color: #888;
+}
+
+/* ── Project modals ─────────────────────────────────────── */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.95) translateY(16px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+
+.w3-modal-content {
+  border-radius: 16px !important;
+  overflow: hidden;
+  animation: modalFadeIn 0.25s ease;
+}
+
+/* ── Resume ─────────────────────────────────────────────── */
+.resume-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.resume-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
 /* ── Extracurriculars column ────────────────────────────── */
 .EImage {
