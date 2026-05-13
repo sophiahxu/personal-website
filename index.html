@@ -10,337 +10,70 @@
 
 <body>
 
-  <!-- Navigation bar, at the top of the screen -->
-  <div class="nav-top">
-    <div class="w3-bar" id="myNavbar">
-      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);"
-        onclick="toggleFunction()" title="Toggle Navigation Menu">
-        <i class="fa fa-bars"></i>
-      </a>
-      <a href="#home" class="w3-bar-item w3-button">HOME</a>
-      <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-      <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PROJECTS</a>
-      <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-      <a href="#funFacts" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> FUN FACTS</a>
+  <!-- Hamburger button for mobile -->
+  <button class="hamburger" onclick="toggleSidebar()">
+    <i class="fa fa-bars"></i>
+  </button>
+
+  <div class="page-wrapper">
+
+    <!-- Vertical tab sidebar -->
+    <nav class="tab-sidebar" id="sidebar">
+      <div class="sidebar-header">Sophia Xu</div>
+      <a href="#" onclick="return showSection('home')" id="tab-home"><i class="fa fa-home"></i> Home</a>
+      <a href="#" onclick="return showSection('about')" id="tab-about"><i class="fa fa-user"></i> About</a>
+      <a href="#" onclick="return showSection('portfolio')" id="tab-portfolio"><i class="fa fa-th"></i> Projects</a>
+      <a href="#" onclick="return showSection('contact')" id="tab-contact"><i class="fa fa-envelope"></i> Contact</a>
+      <a href="#" onclick="return showSection('funfacts')" id="tab-funfacts"><i class="fa fa-heart"></i> Fun Facts</a>
+    </nav>
+
+    <!-- Main content: one section visible at a time -->
+    <div class="main-content">
+      <section class="page-section" id="home"></section>
+      <section class="page-section" id="about"></section>
+      <section class="page-section" id="portfolio"></section>
+      <section class="page-section" id="contact"></section>
+      <section class="page-section" id="funfacts"></section>
     </div>
 
-    <!-- Navbar on small screens -->
-    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-      <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-      <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECTS</a>
-      <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-      <a href="#funFacts" class="w3-bar-item w3-button" onclick="toggleFunction()">FUN FACTS</a>
-    </div>
   </div>
 
-  <!-- First Parallax Image with Logo Text -->
-  <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-    <div class="w3-display-middle" style="white-space:nowrap;">
-      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">Sophia <span
-          class="w3-hide-small">Xu, San Francisco CA</span>
-    </div>
-  </div>
+  <script>
+    const sections = ['home', 'about', 'portfolio', 'contact', 'funfacts'];
+    const loaded = {};
 
-  <!-- Container (About Section) -->
-  <div class="w3-content w3-container w3-padding-64" id="about">
-    <h3 class="w3-center">ABOUT ME</h3>
-    <p>Hello! My name is Sophia, and I am a recent graduate of Cornell University with a bachelors in
-      Computer Science, and minors in Game Design and Behavioral Science. I am most passionate about
-      creating projects that spark joy in people. Whether it be a fun video game where you shoot bubblegum, or
-      a website that finds someone their perfect plant, I like to code things that add fulfillment to life :) </p>
-    <p>My most recent work experience was as a
-      SWE intern at Atlassian during the summer of 2023. I worked on the company's Confluence External Collaboration
-      Feature,
-      that allowed paid users to add outside guests into their Confluence space. I was responsible for Guest Feature
-      Awareness,
-      a feature that was a part of onboarding Confluence Guests. I used React and TypeScript to code banners, onboarding
-      modals, and feedback loops.
-    </p>
-    <p>At Cornell, I was the Software Development lead for Engineers Without Borders, a project team that centers around
-      creating solutions to problems in international communities. My software team was in collaboration with the local
-      Tompkins
-      Community Climate fund, coding an app that allows the community to offset their carbon emissions. The app was
-      coded
-      in React
-      Native, and I was responsible for delegating tasks to each developer, leading team meetings, and coding
-      the
-      app.
-    </p>
-    In my spare time I enjoy cooking, hiking,
-    skiing, music, and watching stand-up comedy. Scroll to the bottom for more fun facts about me :P</p>
-    <h5>Click <a href="images/Resume_2024.pdf" title="resume" target="_blank" class="w3-hover-text-green">here</a> to
-      view my resume.</h5>
-    <div class="w3-row">
-      <div class="w3-col m6 w3-center w3-padding-large">
-        <img src="images/myphoto.jpg" class="w3-round w3-image" alt="Photo of Me" width="500" height="250">
-      </div>
+    async function showSection(id) {
+      // Fetch and inject content the first time
+      if (!loaded[id]) {
+        const res = await fetch('sections/' + id + '.html');
+        const html = await res.text();
+        document.getElementById(id).innerHTML = html;
+        loaded[id] = true;
+      }
 
-      <!-- Hide this text on small devices -->
-      <div class="w3-col m6 w3-hide-small w3-padding-large Ecolumn">
-        <h3 class="w3-center">MY EXTRACURRICULARS</h3>
-        <div class="w3-col">
-          <img src="images/CornellEngineering.png" class="EImage" alt="Cornell Engineering Photo">
-          <h5 class="Etext">Undergraduate Peer Advisor, 2021 - 2024</h5>
-        </div>
-        <div class="w3-col">
-          <img src="images/wicc.png" class="WICCImage" alt="WICC Photo">
-          <h5 class="Etext">Women in Computing at Cornell (WICC) Mentor, 2022 - 2024</h5>
-        </div>
-      </div>
-    </div>
+      // Hide all, show target
+      sections.forEach(function(s) {
+        document.getElementById(s).style.display = 'none';
+        document.getElementById('tab-' + s).classList.remove('active');
+      });
+      document.getElementById(id).style.display = 'block';
+      document.getElementById('tab-' + id).classList.add('active');
 
-    <!-- Container (Portfolio Section) -->
-    <div class="w3-content w3-container w3-padding-64" id="portfolio">
-      <h3 class="w3-center">MY PROJECTS</h3>
-      <p class="w3-center"><em>Here is some of my latest work.<br> Click on the images for more information.</em></p>
-      <br>
+      closeSidebar();
+      return false;
+    }
 
-      <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-      <div class="w3-row-padding w3-center">
-        <div class="w3-col m3">
-          <img src="images/bubblegumBandit.jpeg" style="width:100%"
-            onclick="document.getElementById('id01').style.display='block'" class="w3-hover-opacity">
-          <h5>Bubblegum Bandit</h5>
-        </div>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
 
-        <div class="w3-col m3">
-          <img src="images/plantPalThumb.png" style="width:100%"
-            onclick="document.getElementById('id02').style.display='block'" class="w3-hover-opacity">
-          <h5>Plant Pals</h5>
-        </div>
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+    }
 
-        <div class="w3-col m3">
-          <img src="images/appScreenshot.jpg" style="width:100%"
-            onclick="document.getElementById('id03').style.display='block'" class="w3-hover-opacity">
-          <h5>Climate Fund App</h5>
-        </div>
-
-        <div class="w3-col m3">
-          <img src="images/Scrabble.jpg" style="width:100%"
-            onclick="document.getElementById('id04').style.display='block'" class="w3-hover-opacity">
-          <h5>Online Scrabble</h5>
-        </div>
-
-        <!-- The bubblegum bandit Modal -->
-        <div id="id01" class="w3-modal">
-          <div class="w3-modal-content">
-            <div class="w3-container">
-              <span onclick="document.getElementById('id01').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>
-              <h2>Bubblegum Bandit</h2>
-              <img src="images/bubblegumBandit.jpeg">
-              <h4><strong>Tools and Skills:</strong> Java, libgdx, Game Development</h4>
-              <h5 style="margin-top:0.5cm;">Embody a space pirate who wreaks havoc by flipping gravity and sticking
-                enemies with bubblegum!</h5>
-              <h6>Bubblegum Bandit is an action platformer that I created alongside seven other team members over the
-                span of three months. I was
-                responsible for coding much of the physics and player mechanics of the game - most notably,
-                all of the gum mechanics (how it shoots, sticks, and feels) were implemented by me. It was coded in
-                Java using the libgdx library, and is the project I am most proud of - not only because
-                it's my most complex, but it's simply super
-                fun to play!
-              </h6>
-              <h4>Play it on Steam <a href="https://store.steampowered.com/app/2460680/Bubblegum_Bandit/" title="steam"
-                  target="_blank" class="w3-hover-text-green">here!</a></h4>
-            </div>
-          </div>
-        </div>
-
-        <!-- The Plant Pals Modal -->
-        <div id="id02" class="w3-modal">
-          <div class="w3-modal-content">
-            <div class="w3-container">
-              <span onclick="document.getElementById('id02').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>
-              <h2>Plant Pals</h2>
-              <img style="width:60%" src="images/plantPalThumb.png">
-              <h4><strong>Tools and Skills:</strong> Python, Javascript, HTML/CSS</h4>
-              <h5 style="margin-top:0.5cm;">Everyone Deserves a Plant</h5>
-              <h6>Plant Pals operates as a search engine that allows users to find their ideal indoor plant depending on
-                the characteristics they search (ie has flowers, little watering, etc.). The backend utilized text
-                querying concepts
-                such as cosine similarity and jaccard to match the user's typed input to a plant's description.
-                Additionally,
-                Rocchio's algorithm was
-                used so that users could improve their search results depending on whether they liked the ones they were
-                given.
-              </h6>
-              <h4>Github repo <a href="https://github.com/lyradsouza/4300-Plant-Pals" title="repo" target="_blank"
-                  class="w3-hover-text-green">here</a></h4>
-            </div>
-          </div>
-        </div>
-
-        <!-- The Climate Fund Modal -->
-        <div id="id03" class="w3-modal">
-          <div class="w3-modal-content">
-            <div class="w3-container">
-              <span onclick="document.getElementById('id03').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>
-              <h2>Climate Fund App</h2>
-              <img style="height:50%; width:60%; margin-bottom: 1cm;" src="images/appScreenshot.jpg">
-              <img style="height:50%; width:60%" src="images/react.jpg">
-              <h4><strong>Tools and Skills:</strong> React Native, Team Leadership, Organization</h4>
-              <h6>This app is a project I did with my project team, Engineers Without Borders. It was
-                in collaboration with the Thompkins Finger Lakes Climate Fund. Using the app, users can offset their
-                carbon emissions by donating a corresponding amount of money to the Climate Fund, which
-                uses the money to support local green projects. I was the
-                Software Lead of the project, using Jira to delegate tasks and ensuring communication
-                between the designers and programmers on the team. Within the code, I was responsible for
-                ensuring the app could scale across all device sizes, as well as coding a large part of the users
-                personal
-                profile and history.
-              </h6>
-              <h4 style="margin-bottom: 2cm;">It is coming to the App Store soon!</h4>
-            </div>
-          </div>
-        </div>
-
-        <!-- The Online Scrabble Modal -->
-        <div id="id04" class="w3-modal">
-          <div class="w3-modal-content">
-            <div class="w3-container">
-              <span onclick="document.getElementById('id04').style.display='none'"
-                class="w3-button w3-display-topright">&times;</span>
-              <h2>Online Scrabble</h2>
-              <img style="width:60%" src="images/Scrabble.jpg">
-              <h4><strong>Tools and Skills:</strong> OCaml, OCaml graphics</h4>
-              <h6>This game mimics online Scrabble, in which players can pass a computer around
-                to play. It was coded in Ocaml, a functional programming language, and displayed using
-                OCaml graphics. I worked with two others on this project.
-                I coded the functionality of the player tiles, ie how the user clicks
-                and drags them, as well as how each player's tiles are stored in the backend. The game
-                also has an automated scoring system, which I contributed a large part of.
-              </h6>
-              <h4>Github repo <a href="https://github.com/sophiahxu/Online_scrabble" title="repo" target="_blank"
-                  class="w3-hover-text-green">here</a></h4>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal for full size images on click-->
-      <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-        <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i
-            class="fa fa-remove"></i></span>
-        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-          <img id="img01" class="w3-image">
-          <p id="caption" class="w3-opacity w3-large"></p>
-        </div>
-      </div>
-
-      <!-- Container (Contact Section) -->
-      <div class="w3-content w3-container w3-padding-64" id="contact">
-        <h3 class="w3-center">MY CONTACT INFO</h3>
-        <div class="w3-col m4 w3-container">
-        </div>
-        <div class="w3-col m8 w3-panel">
-          <div class="w3-large w3-margin-bottom">
-            <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>Ithaca, NY<br>
-            <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>shx3@cornell.edu<br>
-            <i
-              class="fa fa-linkedin fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>linkedin.com/in/sophia-h-xu/<br>
-          </div>
-        </div>
-
-        <div class="w3-content w3-container w3-padding-64" id="funFacts">
-          <h3 class="w3-center">FUN FACTS AND THINGS ABOUT ME</h3>
-          <div class="w3-row-padding w3-center">
-            <p>One thing for sure is that I love to travel. Most recently, I went on a trip to Europe with college
-              friends, shoving London, Paris, and Amsterdam all in one week. It was definitely hectic and a lot to fit
-              in, but
-              also one of my fondest memories :) The trip's trademarked by the blue puffer jacket I have on in every
-              single
-              photo, it was my clothing obsession at the time.
-            </p>
-            <div class="w3-col m3">
-              <img src="images/london.jpg" alt="Me in London" style="width:150%;">
-              <h6>Big London Bridge</h6>
-            </div>
-            <div class="w3-col m3">
-              <img src="images/paris.jpg" alt="Friends and I at Paris Wall of Love"
-                style="width:250%; margin-left: 100px;">
-              <h6 style="margin-left: 200px; width:100%">Paris Wall of Love with people I love</h6>
-            </div>
-          </div>
-          <div class="w3-row-padding w3-center">
-            <p>But, the coolest place I've been to is Iceland, hands-down. I went in 2018, and honestly it's
-              other-wordly. Waterfalls, glaciers, hot springs - I just had so much fun.
-            </p>
-            <div class="w3-col m3">
-              <img src="images/iceland1.jpg" alt="Iceland1" style="width:200%;">
-              <h6 style="width: 150%;">It was windy all the time :P</h6>
-            </div>
-
-            <div class="w3-col m3">
-              <img src="images/iceland2.jpg" alt="Iceland2" style="width:200%; margin-left: 200px;">
-              <h6 style="margin-left: 200px; width:200%">Had the best
-                ham sandwich of my life sitting here - after doing a hefty hike to view this amazing glacier</h6>
-            </div>
-          </div>
-          <div class="w3-row-padding w3-center">
-            <p>Hobby wise, I really enjoy cooking and being outdoors. I started cooking as a little kid with my Grandma,
-              and love hosting dinner for my friends :D
-            </p>
-            <div class="w3-col m3">
-              <img src="images/dumplingMaking.jpg" alt="Me in London" style="width:130%;">
-              <h6 style="margin-left: 25px; width: 100%">Dumpling making night for Chinese New Year</h6>
-            </div>
-            <div class="w3-col m3">
-              <img src="images/hiking.jpg" alt="Me in London" style="width:130%; margin-left: 65px">
-              <h6 style="margin-left: 60px; width: 125%">Saw Redwood trees for the first time at Muir woods!</h6>
-            </div>
-            <div class="w3-col m3">
-              <img src="images/ski1.jpg" alt="Me in London" style="width:130%; margin-left: 125px">
-              <h6 style="margin-left: 130px; width: 125%">Friend and I tearing up the slopes in a totally candid photo
-              </h6>
-            </div>
-          </div>
-          <div class="w3-row-padding w3-center">
-            <p>Hopefully you've enjoyed learning a bit more about me. If you would like to learn more about myself or
-              chat about any
-              of these topics,
-              feel free to reach out! My contact info is listed above :)
-            </p>
-          </div>
-
-          <!-- Footer -->
-          <footer class="w3-center w3-padding-64 w3-opacity w3-hover-opacity-off">
-            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-                class="w3-hover-text-green">w3.css</a></p>
-          </footer>
-
-          <script>
-            // Modal Image Gallery
-            function onClick(element) {
-              document.getElementById("img01").src = element.src;
-              document.getElementById("modal01").style.display = "block";
-              var captionText = document.getElementById("caption");
-              captionText.innerHTML = element.alt;
-            }
-
-            // Change style of navbar on scroll
-            window.onscroll = function () { myFunction() };
-            function myFunction() {
-              var navbar = document.getElementById("myNavbar");
-              if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-              } else {
-                navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
-              }
-            }
-
-            // Used to toggle the menu on small screens when clicking on the menu button
-            function toggleFunction() {
-              var x = document.getElementById("navDemo");
-              if (x.className.indexOf("w3-show") == -1) {
-                x.className += " w3-show";
-              } else {
-                x.className = x.className.replace(" w3-show", "");
-              }
-            }
-          </script>
+    // Start on Home
+    showSection('home');
+  </script>
 
 </body>
-
 </html>
